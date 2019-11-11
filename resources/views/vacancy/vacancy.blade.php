@@ -6,7 +6,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <script>window.Laravel = { csrfTOken: '{{ csrf_token() }}' }</script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <title>Hireme</title>
+        <title>Hireme - Cari Lowongan yang Cocok untukmu!</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -17,7 +17,7 @@
        <div id="app">
            <div class="container">
                <navbar></navbar>
-               <welcome-page></welcome-page>
+                <vacancy-container></vacancy-container>
            </div>
        </div>
 
@@ -27,3 +27,4 @@
         <script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>
+
