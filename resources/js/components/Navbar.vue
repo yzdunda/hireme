@@ -23,6 +23,7 @@ export default {
 <style lang="scss" scoped>
 .navbar {
 	display: flex;
+	background-color: #ffffff;
 	padding: 10px 30px;
 	border-bottom-left-radius: 15px;
 	border-bottom-right-radius: 15px;

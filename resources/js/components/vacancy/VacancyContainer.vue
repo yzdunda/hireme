@@ -1,6 +1,6 @@
 <template>
-	<div class="vacancy-container col-12">
-		<h3 class="text-center">Vacancy Lists</h3>
+	<div id="vacancy-container" class="col-12">
+		<h3 class="title text-center"><strong>Vacancy Lists</strong></h3>
 		<clip-loader
 			:loading="isLoading"
 			:color="spinnerColor"
@@ -54,6 +54,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.title {
+	margin-top: 10px;
+}
+
 .spinner {
 	margin-top: 15%;
 }

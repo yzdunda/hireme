@@ -11,7 +11,21 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
-
+        <style>
+            body {
+                background-image: url('/images/background_doddle.png');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                background-attachment: fixed;
+            }
+            .navbar {
+                padding-top: 0;
+                position: sticky;
+                top: 0;
+                z-index: 99;
+            }
+        </style>
     </head>
     <body>
        <div id="app">
