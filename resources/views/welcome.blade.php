@@ -16,8 +16,12 @@
     <body>
        <div id="app">
            <div class="container">
-               <navbar></navbar>
-               <welcome-page></welcome-page>
+               <div class="row">
+                <navbar></navbar>
+               </div>
+               <div class="row">
+                <welcome-page></welcome-page>
+               </div>
            </div>
        </div>
 

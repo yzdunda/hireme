@@ -1,5 +1,5 @@
 <template>
-	<div class="navbar">
+	<div class="navbar col-12">
 		<div class="brand">
 			<h2>Hireme</h2>
 		</div>

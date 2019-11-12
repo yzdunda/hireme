@@ -16,8 +16,12 @@
     <body>
        <div id="app">
            <div class="container">
-               <navbar></navbar>
-                <vacancy-container></vacancy-container>
+                <div class="row">
+                    <navbar></navbar>
+                </div>
+                <div class="row">
+                    <vacancy-container></vacancy-container>
+                </div>
            </div>
        </div>
 
