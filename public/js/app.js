@@ -1971,6 +1971,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'VacancyList',
@@ -1995,6 +1997,27 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -6525,7 +6548,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".vacancy-lists ul[data-v-201d078a] {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n  flex-wrap: wrap;\n  justify-items: center;\n  list-style-type: none;\n}", ""]);
+exports.push([module.i, ".vacancy-lists ul[data-v-201d078a] {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n  flex-wrap: wrap;\n  justify-items: center;\n  list-style-type: none;\n}\n.total-vacancy[data-v-201d078a] {\n  padding-left: 50px;\n}", ""]);
 
 // exports
 
@@ -6544,7 +6567,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "#vacancy-list-item[data-v-b7f14786] {\n  padding: 10px 15px;\n}\nli[data-v-b7f14786] {\n  width: 300px;\n  height: 175px;\n  background-color: #ffffff;\n  box-shadow: 0 10px 10px #888888;\n  border-radius: 15px;\n  padding: 15px;\n}\nli[data-v-b7f14786]:hover {\n  cursor: pointer;\n  box-shadow: 0 10px 10px #626262;\n}", ""]);
+exports.push([module.i, "#vacancy-list-item[data-v-b7f14786] {\n  padding: 10px 15px;\n}\nli[data-v-b7f14786] {\n  width: 300px;\n  min-height: 210px;\n  background-color: #ffffff;\n  box-shadow: 0 10px 10px #888888;\n  border-radius: 15px;\n  padding: 15px 20px;\n}\nli[data-v-b7f14786]:hover {\n  cursor: pointer;\n  box-shadow: 0 10px 10px #626262;\n}\n.vacancy-head[data-v-b7f14786] {\n  margin-bottom: 10px;\n}\n.vacancy-head .title[data-v-b7f14786] {\n  font-size: 16px;\n}\n.vacancy-head .company-name[data-v-b7f14786] {\n  font-size: 14px;\n  color: #1f94f2;\n}\n.vacancy-head .save-vacancy[data-v-b7f14786] {\n  position: relative;\n  float: right;\n  bottom: 41px;\n}\n.vacancy-info .location[data-v-b7f14786],\n.vacancy-info .salary[data-v-b7f14786],\n.vacancy-info .deadline[data-v-b7f14786] {\n  font-size: 14px;\n}\n.vacancy-info .location img[data-v-b7f14786],\n.vacancy-info .salary img[data-v-b7f14786],\n.vacancy-info .deadline img[data-v-b7f14786] {\n  margin-bottom: 7.5px;\n}\n.vacancy-info .date-posted[data-v-b7f14786] {\n  font-size: 12px;\n  float: right;\n  color: #999999;\n}", ""]);
 
 // exports
 
@@ -38294,7 +38317,7 @@ var staticRenderFns = [
             _c("a", { attrs: { href: "/vacancy" } }, [_vm._v("Cari Loker")])
           ]),
           _vm._v(" "),
-          _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Masuk")])])
+          _c("li", [_c("a", { attrs: { href: "/login" } }, [_vm._v("Masuk")])])
         ])
       ])
     ])
@@ -38406,9 +38429,11 @@ var render = function() {
   return _c("div", { attrs: { id: "vacancy-list" } }, [
     _vm.vacancyList.length
       ? _c("span", [
-          _c("p", [
+          _c("p", { staticClass: "total-vacancy" }, [
             _vm._v(
-              _vm._s(_vm.vacancyList.length) + " Pekerjaan ditemukan untuk kamu"
+              "\n\t\t\t" +
+                _vm._s(_vm.vacancyList.length) +
+                " Pekerjaan ditemukan untuk kamu\n\t\t"
             )
           ])
         ])
@@ -38454,26 +38479,80 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "vacancy-list-item" } }, [
     _c("li", [
-      _c("div", { staticClass: "vacancy-title" }, [
-        _c("h5", [_vm._v(_vm._s(_vm.vacancy.company.bs))]),
+      _c("div", { staticClass: "vacancy-head" }, [
+        _c("span", { staticClass: "title" }, [
+          _c("strong", [_vm._v(_vm._s(_vm.vacancy.company.bs))])
+        ]),
         _vm._v(" "),
         _c("br"),
         _vm._v(" "),
-        _vm._v("\n\t\t\t" + _vm._s(_vm.vacancy.company.name) + "\n\t\t\t"),
-        _c("br")
+        _c("span", { staticClass: "company-name" }, [
+          _vm._v("PT. " + _vm._s(_vm.vacancy.company.name))
+        ]),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
+        _vm._m(0)
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "vacancy-desc" }, [
-        _vm._v("\n\t\t\t" + _vm._s(_vm.vacancy.address.city) + "\n\t\t\t"),
+      _c("div", { staticClass: "vacancy-info" }, [
+        _c("span", { staticClass: "location" }, [
+          _c("img", {
+            attrs: {
+              src: "/assets/location_icon.png",
+              alt: "vacancy-city-icon"
+            }
+          }),
+          _vm._v(" Kota\n\t\t\t\t" + _vm._s(_vm.vacancy.address.city))
+        ]),
+        _vm._v(" "),
         _c("br"),
         _vm._v(" "),
-        _vm._v("\n\t\t\tRp" + _vm._s(_vm.vacancy.zipcode) + "\n\t\t\t"),
-        _vm._v("\n\t\t\t" + _vm._s(_vm.vacancy.address.suite) + "\n\t\t")
+        _c("span", { staticClass: "salary" }, [
+          _c("img", {
+            attrs: {
+              src: "/assets/currency_icon.png",
+              alt: "vacancy-salary-icon"
+            }
+          }),
+          _vm._v(" IDR\n\t\t\t\t" + _vm._s(_vm.vacancy.address.zipcode))
+        ]),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
+        _c("span", { staticClass: "deadline" }, [
+          _c("img", {
+            attrs: {
+              src: "/assets/calendar_icon.png",
+              alt: "vacancy-date-posted"
+            }
+          }),
+          _vm._v("\n\t\t\t\t" + _vm._s(_vm.vacancy.address.suite))
+        ]),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
+        _c("span", { staticClass: "date-posted" }, [
+          _vm._v("\n\t\t\t\t3 Hari yang lalu\n\t\t\t")
+        ])
       ])
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "save-vacancy" }, [
+      _c("a", { attrs: { href: "#" } }, [
+        _c("img", {
+          attrs: { src: "/assets/favorite_icon.png", alt: "saved-vacancy" }
+        })
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 

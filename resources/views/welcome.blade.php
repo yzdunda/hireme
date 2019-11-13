@@ -13,7 +13,7 @@
 
         <style>
             body {
-                background-image: url('/images/background_doddle.png');
+                background-image: url('/assets/background_doddle.png');
                 background-repeat: no-repeat;
                 background-position: center;
                 background-size: cover;

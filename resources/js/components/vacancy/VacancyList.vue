@@ -1,7 +1,9 @@
 <template>
 	<div id="vacancy-list">
 		<span v-if="vacancyList.length"
-			><p>{{ vacancyList.length }} Pekerjaan ditemukan untuk kamu</p></span
+			><p class="total-vacancy">
+				{{ vacancyList.length }} Pekerjaan ditemukan untuk kamu
+			</p></span
 		>
 
 		<div class="vacancy-lists mx-auto">
@@ -41,5 +43,9 @@ export default {
 		justify-items: center;
 		list-style-type: none;
 	}
+}
+
+.total-vacancy {
+	padding-left: 50px;
 }
 </style>

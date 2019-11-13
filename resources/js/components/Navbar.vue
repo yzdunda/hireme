@@ -8,7 +8,7 @@
 				<li><a href="/">Home</a></li>
 				<li><a href="#">Tentang Kami</a></li>
 				<li><a href="/vacancy">Cari Loker</a></li>
-				<li><a href="#">Masuk</a></li>
+				<li><a href="/login">Masuk</a></li>
 			</ul>
 		</div>
 	</div>
