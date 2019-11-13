@@ -13,7 +13,7 @@
 
         <style>
             body {
-                background-image: url('/assets/background_doddle.png');
+                background-image: url('/assets/background_homepage.png');
                 background-repeat: no-repeat;
                 background-position: center;
                 background-size: cover;
@@ -30,12 +30,8 @@
     <body>
        <div id="app">
            <div class="container">
-               <div class="row">
                 <navbar></navbar>
-               </div>
-               <div class="row">
                 <welcome-page></welcome-page>
-               </div>
            </div>
        </div>
 
