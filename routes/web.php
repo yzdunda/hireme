@@ -19,6 +19,10 @@ Route::get('/vacancy', function () {
     return view('/vacancy/vacancy');
 });
 
+Route::get('/vacancy-detail', function () {
+    return view('/vacancy/vacancy-item-detail');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

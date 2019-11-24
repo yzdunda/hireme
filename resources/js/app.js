@@ -25,6 +25,10 @@ Vue.component(
     'vacancy-container',
     require('./components/vacancy/VacancyContainer.vue').default
 );
+Vue.component(
+    'vacancy-item-detail',
+    require('./components/vacancy/VacancyItemDetail.vue').default
+);
 
 // ---------------------------------
 
