@@ -17,5 +17,31 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
+// ------ COMPANIES ------
+
 // List all companies
-Route::get('/companies', 'CompanyController@index');
+Route::get('companies', 'CompanyController@index');
+
+// Show a single company
+Route::get('company/{id}', 'CompanyController@show');
+
+// Create a new company
+Route::post('company', 'CompanyController@store');
+
+// Delete a company
+Route::delete('company/{id}', 'CompanyController@destroy');
+
+// ------ VACANCIES ------
+
+// List all Vacancy
+Route::get('vacancies', 'VacancyController@index');
+
+// Show a single company
+Route::get('vacancy/{id}', 'VacancyController@show');
+
+// Create a new company
+Route::post('vacancy', 'VacancyController@store');
+
+// Delete a company
+Route::delete('vacancy/{id}', 'VacancyController@destroy');

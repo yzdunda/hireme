@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Company;
-use App\Http\Resources\Company as CompanyResource;
+use App\Vacancy;
+use App\Http\Resources\Vacancy as VacancyResource;
 
-class CompanyController extends Controller
+class VacancyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +15,10 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        // Get Company
-        $companies = Company::paginate(15);
+        // Get Vacancies
+        $vacancies = Vacancy::paginate(15);
 
-        // Return collection of articles as a resource
-        return CompanyResource::collection($companies);
+        return VacancyResource::collection($vacancies);
     }
 
     /**
@@ -40,17 +39,20 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        $company = $request->isMethod('put')  ? Company::findOrFail($request->company_id) : new Company;
+        $vacancy = $request->isMethod('put')  ? Vacancy::findOrFail($request->vacancy_id) : new Vacancy;
 
-        $company->id = $request->input('company_id');
-        $company->name = $request->input('name');
-        $company->description = $request->input('description');
-        $company->email = $request->input('email');
-        $company->website = $request->input('website');
-        $company->address = $request->input('address');
+        $vacancy->id = $request->input('vacancy_id');
+        $vacancy->company_id = $request->input('company_id');
+        $vacancy->title = $request->input('title');
+        $vacancy->location = $request->input('location');
+        $vacancy->salary = $request->input('salary');
+        $vacancy->description = $request->input('description');
+        $vacancy->responsibilities = $request->input('responsibilities');
+        $vacancy->min_qualification = $request->input('min_qualification');
+        $vacancy->benefit = $request->input('benefit');
 
-        if ($company->save()) {
-            return new CompanyResource($company);
+        if ($vacancy->save()) {
+            return new VacancyResource($vacancy);
         }
     }
 
@@ -62,8 +64,8 @@ class CompanyController extends Controller
      */
     public function show($id)
     {
-        $company = Company::findOrFail($id);
-        return new CompanyResource($company);
+        $vacancy = Vacancy::findOrFail($id);
+        return new VacancyResource($vacancy);
     }
 
     /**
@@ -97,10 +99,10 @@ class CompanyController extends Controller
      */
     public function destroy($id)
     {
-        $company = Company::findOrFail($id);
+        $vacancy = Vacancy::findOrFail($id);
 
-        if ($company->delete()) {
-            return new CompanyResource($company);
+        if ($vacancy->delete()) {
+            return new VacancyResource($vacancy);
         }
     }
 }
