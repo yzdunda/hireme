@@ -26,3 +26,24 @@ Route::get('/vacancy-detail', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('/company-login', function () {
+    return view('/company/company-login');
+});
+
+Route::get('/company-profile', function () {
+    return view('/company/company-dash-profile');
+});
+
+Route::get('/company-vacancies', function () {
+    return view('/company/company-dash-my-vacancy');
+});
+
+Route::get('/company-create', function () {
+    return view('/company/company-dash-create-new');
+});
+
+Route::get('/company-applicants', function () {
+    return view('/company/company-dash-applicants');
+});

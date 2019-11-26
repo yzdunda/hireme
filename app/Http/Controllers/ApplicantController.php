@@ -72,6 +72,22 @@ class ApplicantController extends Controller
         return ApplicantResource::collection($applicant);
     }
 
+    // Display for specific user
+    public function show_for_user($user_id)
+    {
+        $applicant = Applicant::join('vacancies', 'vacancies.id', '=', 'applicants.vacancy_id')->join('users', 'users.id', '=', 'applicants.user_id')->join('companies', 'companies.id', '=', 'vacancies.company_id')->select('applicants.*', 'vacancies.title', 'users.name', 'companies.names')->where('applicants.user_id', '=', $user_id)->get();
+
+        return ApplicantResource::collection($applicant);
+    }
+
+    // Display for specific company
+    public function show_for_company($company_id)
+    {
+        $applicant = Applicant::join('vacancies', 'vacancies.id', '=', 'applicants.vacancy_id')->join('users', 'users.id', '=', 'applicants.user_id')->join('companies', 'companies.id', '=', 'vacancies.company_id')->select('applicants.*', 'vacancies.title', 'users.name', 'companies.names')->where('vacancies.company_id', '=', $company_id)->get();
+
+        return ApplicantResource::collection($applicant);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

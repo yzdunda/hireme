@@ -16,7 +16,7 @@ class VacancyController extends Controller
     public function index()
     {
         // Get Vacancies
-        $vacancies = Vacancy::join('companies', 'vacancies.company_id', '=', 'companies.id')->select('vacancies.*', 'companies.name')->paginate(15);
+        $vacancies = Vacancy::join('companies', 'vacancies.company_id', '=', 'companies.id')->select('vacancies.*', 'companies.names')->paginate(15);
 
 
         return VacancyResource::collection($vacancies);
@@ -64,7 +64,7 @@ class VacancyController extends Controller
      */
     public function show($id)
     {
-        $vacancy_get_id = Vacancy::join('companies', 'vacancies.company_id', '=', 'companies.id')->select('vacancies.*', 'companies.name', 'companies.descriptions', 'companies.email', 'companies.website', 'companies.address')->where('vacancies.id', '=', $id)->get();
+        $vacancy_get_id = Vacancy::join('companies', 'vacancies.company_id', '=', 'companies.id')->select('vacancies.*', 'companies.names', 'companies.descriptions', 'companies.email', 'companies.website', 'companies.address')->where('vacancies.id', '=', $id)->get();
 
         return new VacancyResource($vacancy_get_id);
     }

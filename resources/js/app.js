@@ -4,9 +4,9 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+require("./bootstrap");
 
-window.Vue = require('vue');
+window.Vue = require("vue");
 
 /**
  * The following block of code may be used to automatically register your
@@ -19,22 +19,56 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+Vue.component("navbar", require("./components/Navbar.vue").default);
+
+Vue.component("welcome-page", require("./components/WelcomePage.vue").default);
+
 // ------ Vacancy Components -------
 
 Vue.component(
-    'vacancy-container',
-    require('./components/vacancy/VacancyContainer.vue').default
+    "vacancy-container",
+    require("./components/vacancy/VacancyContainer.vue").default
 );
 Vue.component(
-    'vacancy-item-detail',
-    require('./components/vacancy/VacancyItemDetail.vue').default
+    "vacancy-item-detail",
+    require("./components/vacancy/VacancyItemDetail.vue").default
 );
 
 // ---------------------------------
 
-Vue.component('navbar', require('./components/Navbar.vue').default);
+// ------ Company Components -------
 
-Vue.component('welcome-page', require('./components/WelcomePage.vue').default);
+Vue.component(
+    "company-login",
+    require("./components/company/CompanyLogin.vue").default
+);
+
+Vue.component(
+    "company-dash-navigator",
+    require("./components/company/CompanyDashNavigator.vue").default
+);
+
+Vue.component(
+    "company-dash-my-vacancy",
+    require("./components/company/CompanyDashMyVacancy.vue").default
+);
+
+Vue.component(
+    "company-dash-create-new",
+    require("./components/company/CompanyDashCreateNew.vue").default
+);
+
+Vue.component(
+    "company-dash-profile",
+    require("./components/company/CompanyDashProfile.vue").default
+);
+
+Vue.component(
+    "company-dash-applicants",
+    require("./components/company/CompanyDashApplicants.vue").default
+);
+
+// ---------------------------------
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -43,5 +77,5 @@ Vue.component('welcome-page', require('./components/WelcomePage.vue').default);
  */
 
 const app = new Vue({
-    el: '#app'
+    el: "#app"
 });

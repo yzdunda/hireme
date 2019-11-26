@@ -8,7 +8,7 @@
 				>
 				<br />
 				<!-- dummy for vacancy provider -->
-				<span class="company-name">{{ vacancy.name }}</span>
+				<span class="company-name">{{ vacancy.names }}</span>
 				<br />
 				<!-- <span class="save-vacancy">
 					<a href="#">
