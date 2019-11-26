@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Vacancy;
 use App\Http\Resources\Vacancy as VacancyResource;
 
@@ -16,7 +17,8 @@ class VacancyController extends Controller
     public function index()
     {
         // Get Vacancies
-        $vacancies = Vacancy::leftJoin('companies', 'companies.id', '=', 'vacancies.company_id')->paginate(15)->makeHidden(['password']);
+        $vacancies = Vacancy::join('companies', 'vacancies.company_id', '=', 'companies.id')->select('vacancies.*', 'companies.name')->paginate(15);
+
 
         return VacancyResource::collection($vacancies);
     }
@@ -64,8 +66,11 @@ class VacancyController extends Controller
      */
     public function show($id)
     {
-        $vacancy = Vacancy::findOrFail($id);
-        return new VacancyResource($vacancy);
+        $vacancy_get_id = Vacancy::join('companies', 'vacancies.company_id', '=', 'companies.id')->select('vacancies.*', 'companies.name', 'companies.descriptions', 'companies.email', 'companies.website', 'companies.address')->where('vacancies.id', '=', $id)->get();
+
+        // $vacancy = $vacancy_get_id->join('companies', 'vacancies.company_id', '=', 'companies.id')->select('vacancies.*', 'companies.name')->get();
+
+        return new VacancyResource($vacancy_get_id);
     }
 
     /**

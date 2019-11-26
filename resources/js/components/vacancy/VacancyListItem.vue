@@ -4,11 +4,11 @@
 			<div class="vacancy-head">
 				<!-- dummy for vacancy title -->
 				<span class="title"
-					><strong>{{ vacancy.company.bs }}</strong></span
+					><strong>{{ vacancy.title }}</strong></span
 				>
 				<br />
 				<!-- dummy for vacancy provider -->
-				<span class="company-name">PT. {{ vacancy.company.name }}</span>
+				<span class="company-name">{{ vacancy.name }}</span>
 				<br />
 				<!-- <span class="save-vacancy">
 					<a href="#">
@@ -20,19 +20,19 @@
 				<!-- dummy for vacancy location -->
 				<span class="location"
 					><img src="/assets/location_icon.png" alt="vacancy-city-icon" /> Kota
-					{{ vacancy.address.city }}</span
+					{{ vacancy.location }}</span
 				>
 				<br />
 				<!-- dummy for vacancy salary -->
 				<span class="salary"
 					><img src="/assets/currency_icon.png" alt="vacancy-salary-icon" /> IDR
-					{{ vacancy.address.zipcode }}</span
+					{{ vacancy.salary }}</span
 				>
 				<br />
 				<!-- dummy for vacancy date posted -->
 				<span class="deadline"
 					><img src="/assets/calendar_icon.png" alt="vacancy-date-posted" />
-					{{ vacancy.address.suite }}</span
+					{{ vacancy.created_at }}</span
 				>
 				<br />
 				<span class="date-posted">

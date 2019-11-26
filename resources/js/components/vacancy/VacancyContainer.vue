@@ -28,7 +28,7 @@ export default {
 		return {
 			isLoading: false,
 			spinnerColor: 'grey',
-			vacancyList: []
+			vacancyList: ''
 		};
 	},
 	created() {
@@ -43,7 +43,7 @@ export default {
 				.then(response => {
 					this.isLoading = false;
 					console.log(response);
-					this.vacancyList = response.data;
+					this.vacancyList = response.data.data;
 				})
 				.catch(error => {
 					console.log(error);

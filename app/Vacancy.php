@@ -8,7 +8,7 @@ class Vacancy extends Model
 {
     public function company()
     {
-        return $this->belongsTo(Company::class)->withPivot('name');
+        return $this->belongsTo(Company::class);
     }
 
     public function applicant()

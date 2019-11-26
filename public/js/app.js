@@ -1927,7 +1927,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       isLoading: false,
       spinnerColor: 'grey',
-      vacancyList: []
+      vacancyList: ''
     };
   },
   created: function created() {
@@ -1938,10 +1938,10 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.isLoading = true;
-      window.axios.get('https://jsonplaceholder.typicode.com/users').then(function (response) {
+      window.axios.get('http://hireme.test/api/vacancies').then(function (response) {
         _this.isLoading = false;
         console.log(response);
-        _this.vacancyList = response.data;
+        _this.vacancyList = response.data.data;
       })["catch"](function (error) {
         console.log(error);
       });
@@ -38606,13 +38606,13 @@ var render = function() {
     _c("li", [
       _c("div", { staticClass: "vacancy-head" }, [
         _c("span", { staticClass: "title" }, [
-          _c("strong", [_vm._v(_vm._s(_vm.vacancy.company.bs))])
+          _c("strong", [_vm._v(_vm._s(_vm.vacancy.title))])
         ]),
         _vm._v(" "),
         _c("br"),
         _vm._v(" "),
         _c("span", { staticClass: "company-name" }, [
-          _vm._v("PT. " + _vm._s(_vm.vacancy.company.name))
+          _vm._v(_vm._s(_vm.vacancy.name))
         ]),
         _vm._v(" "),
         _c("br")
@@ -38626,7 +38626,7 @@ var render = function() {
               alt: "vacancy-city-icon"
             }
           }),
-          _vm._v(" Kota\n\t\t\t\t" + _vm._s(_vm.vacancy.address.city))
+          _vm._v(" Kota\n\t\t\t\t" + _vm._s(_vm.vacancy.location))
         ]),
         _vm._v(" "),
         _c("br"),
@@ -38638,7 +38638,7 @@ var render = function() {
               alt: "vacancy-salary-icon"
             }
           }),
-          _vm._v(" IDR\n\t\t\t\t" + _vm._s(_vm.vacancy.address.zipcode))
+          _vm._v(" IDR\n\t\t\t\t" + _vm._s(_vm.vacancy.salary))
         ]),
         _vm._v(" "),
         _c("br"),
@@ -38650,7 +38650,7 @@ var render = function() {
               alt: "vacancy-date-posted"
             }
           }),
-          _vm._v("\n\t\t\t\t" + _vm._s(_vm.vacancy.address.suite))
+          _vm._v("\n\t\t\t\t" + _vm._s(_vm.vacancy.created_at))
         ]),
         _vm._v(" "),
         _c("br"),
