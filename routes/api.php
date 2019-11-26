@@ -20,6 +20,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // ------ COMPANIES ------
 
+// Login
+Route::post('company-login', 'CompanyController@login');
+
 // List all companies
 Route::get('companies', 'CompanyController@index');
 

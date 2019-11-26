@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Company;
 use App\Http\Resources\Company as CompanyResource;
+use Hash;
 
 class CompanyController extends Controller
 {
@@ -102,5 +103,46 @@ class CompanyController extends Controller
         if ($company->delete()) {
             return new CompanyResource($company);
         }
+    }
+
+    public function login(Request $request)
+    {
+        $company = Company::where('email', '=', $request->email)->firstOrFail();
+        $status = "error";
+        $message = "";
+        $data = null;
+        $code = 401;
+
+        if ($company) {
+            // if password correct
+            if (Hash::check($request->password, $company->password)) {
+                // Generate Token
+                // $company->generateToken(); next time aja
+                $status = "success";
+                $message = "login success";
+                $data = $company->toArray();
+                $code = 200;
+            } else {
+                $message = "Login gagal, password salah";
+            }
+        } else {
+            $message = "Login failed, wrong email address";
+        }
+
+        return response()->json([
+            'status' => $status,
+            'message' => $message,
+            'data' => $data
+        ], $code);
+    }
+
+    public function register(Request $request)
+    {
+        //
+    }
+
+    public function logout(Request $request)
+    {
+        //
     }
 }
