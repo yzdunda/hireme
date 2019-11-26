@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class TableUsersAdjusments extends Migration
+class AddPasswordInCompany extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class TableUsersAdjusments extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string("roles");
-            $table->text("description");
-            $table->enum("status", ["ACTIVE", "INACTIVE"]);
+        Schema::table('companies', function (Blueprint $table) {
+            $table->string('password');
         });
     }
 
@@ -27,6 +25,8 @@ class TableUsersAdjusments extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('companies', function (Blueprint $table) {
+            //
+        });
     }
 }

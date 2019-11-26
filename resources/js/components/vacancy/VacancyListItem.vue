@@ -10,11 +10,11 @@
 				<!-- dummy for vacancy provider -->
 				<span class="company-name">PT. {{ vacancy.company.name }}</span>
 				<br />
-				<span class="save-vacancy">
+				<!-- <span class="save-vacancy">
 					<a href="#">
 						<img src="/assets/favorite_icon.png" alt="saved-vacancy" />
 					</a>
-				</span>
+				</span> -->
 			</div>
 			<div class="vacancy-info">
 				<!-- dummy for vacancy location -->

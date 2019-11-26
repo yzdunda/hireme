@@ -39,7 +39,7 @@ export default {
 			this.isLoading = true;
 
 			window.axios
-				.get('https://jsonplaceholder.typicode.com/users')
+				.get('http://hireme.test/api/vacancies')
 				.then(response => {
 					this.isLoading = false;
 					console.log(response);

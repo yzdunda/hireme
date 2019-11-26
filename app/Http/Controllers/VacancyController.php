@@ -16,7 +16,7 @@ class VacancyController extends Controller
     public function index()
     {
         // Get Vacancies
-        $vacancies = Vacancy::paginate(15);
+        $vacancies = Vacancy::leftJoin('companies', 'companies.id', '=', 'vacancies.company_id')->paginate(15)->makeHidden(['password']);
 
         return VacancyResource::collection($vacancies);
     }
