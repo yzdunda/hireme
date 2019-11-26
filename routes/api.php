@@ -45,3 +45,17 @@ Route::post('vacancy', 'VacancyController@store');
 
 // Delete a company
 Route::delete('vacancy/{id}', 'VacancyController@destroy');
+
+// ------ Applicants ------
+
+// List all Vacancy
+Route::get('applicants', 'ApplicantController@index');
+
+// Show a single company
+Route::get('applicant/{id}', 'ApplicantController@show');
+
+// Create a new company
+Route::post('applicant', 'ApplicantController@store');
+
+// Delete a company
+Route::delete('applicant/{id}', 'ApplicantController@destroy');

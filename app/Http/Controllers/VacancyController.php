@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Vacancy;
 use App\Http\Resources\Vacancy as VacancyResource;
 
@@ -43,7 +42,6 @@ class VacancyController extends Controller
     {
         $vacancy = $request->isMethod('put')  ? Vacancy::findOrFail($request->vacancy_id) : new Vacancy;
 
-        $vacancy->id = $request->input('vacancy_id');
         $vacancy->company_id = $request->input('company_id');
         $vacancy->title = $request->input('title');
         $vacancy->location = $request->input('location');
@@ -67,8 +65,6 @@ class VacancyController extends Controller
     public function show($id)
     {
         $vacancy_get_id = Vacancy::join('companies', 'vacancies.company_id', '=', 'companies.id')->select('vacancies.*', 'companies.name', 'companies.descriptions', 'companies.email', 'companies.website', 'companies.address')->where('vacancies.id', '=', $id)->get();
-
-        // $vacancy = $vacancy_get_id->join('companies', 'vacancies.company_id', '=', 'companies.id')->select('vacancies.*', 'companies.name')->get();
 
         return new VacancyResource($vacancy_get_id);
     }

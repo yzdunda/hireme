@@ -42,10 +42,10 @@ class CompanyController extends Controller
     {
         $company = $request->isMethod('put')  ? Company::findOrFail($request->company_id) : new Company;
 
-        $company->id = $request->input('company_id');
         $company->name = $request->input('name');
-        $company->description = $request->input('description');
+        $company->descriptions = $request->input('descriptions');
         $company->email = $request->input('email');
+        $company->password = \Hash::make($request->get('password'));
         $company->website = $request->input('website');
         $company->address = $request->input('address');
 
