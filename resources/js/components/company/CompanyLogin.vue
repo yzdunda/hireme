@@ -2,8 +2,16 @@
 	<div class="row">
 		<div class="left-side col-12 col-md-5 offset-md-1">
 			<h1>Masuk ke akun perusahaan Anda</h1>
-			<input type="email" placeholder="Email Perusahaan" /><br />
-			<input type="password" placeholder="Password" /><br />
+			<input
+				type="email"
+				placeholder="Email Perusahaan"
+				v-model="companyEmail"
+			/><br />
+			<input
+				type="password"
+				placeholder="Password"
+				v-model="companyPassword"
+			/><br />
 			<a @click="companyLogin" class="btn">Login</a>
 		</div>
 		<div class="right-side col-md-5">
@@ -15,9 +23,33 @@
 <script>
 export default {
 	name: 'CompanyLogin',
+	data() {
+		return {
+			companyEmail: '',
+			companyPassword: ''
+		};
+	},
 	methods: {
 		companyLogin() {
-			console.log('you are trying to login');
+			axios
+				.post('http://hireme.test/api/company-login/', {
+					email: this.companyEmail,
+					password: this.companyPassword
+				})
+				.then(response => {
+					let responseData = JSON.stringify(response.data);
+					localStorage.setItem('responseLogin', responseData);
+
+					let getStorage = localStorage.getItem('responseLogin');
+					console.log(getStorage);
+
+					if (getStorage) {
+						window.location = 'company-profile';
+					}
+				})
+				.catch(error => {
+					console.log(error);
+				});
 		}
 	}
 };
@@ -56,6 +88,7 @@ export default {
 		border-radius: 10px;
 		background-color: #1f94f2;
 		color: #ffffff;
+		cursor: pointer;
 	}
 }
 

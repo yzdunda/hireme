@@ -69,6 +69,13 @@ class VacancyController extends Controller
         return new VacancyResource($vacancy_get_id);
     }
 
+    public function show_for_company($company_id)
+    {
+        $vacancy = Vacancy::join('companies', 'vacancies.company_id', '=', 'companies.id')->select('vacancies.*', 'companies.names', 'companies.descriptions', 'companies.email', 'companies.website', 'companies.address')->where('vacancies.company_id', '=', $company_id)->get();
+
+        return new VacancyResource($vacancy);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

@@ -43,13 +43,23 @@ Route::get('vacancies', 'VacancyController@index');
 // Show a single vacancy
 Route::get('vacancy/{id}', 'VacancyController@show');
 
+// Show a single vacancy for compant
+Route::get('vacancy/company/{company_id}', 'VacancyController@show_for_company');
+
 // Create a new vacancy
 Route::post('vacancy', 'VacancyController@store');
 
 // Delete a vacancy
 Route::delete('vacancy/{id}', 'VacancyController@destroy');
 
-// ------ Applicants ------
+
+
+// ------ Applicants for a company------
+
+
+// Route::middleware('auth:api')->get('applicants', function (Request $request) {
+//     return $request->company();
+// });
 
 // List all Applicants
 Route::get('applicants', 'ApplicantController@index');

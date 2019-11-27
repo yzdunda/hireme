@@ -112,16 +112,19 @@ class CompanyController extends Controller
         $message = "";
         $data = null;
         $code = 401;
+        $redirect = "";
 
         if ($company) {
             // if password correct
             if (Hash::check($request->password, $company->password)) {
                 // Generate Token
-                // $company->generateToken(); next time aja
+                // $company->generateToken();
+
                 $status = "success";
                 $message = "login success";
                 $data = $company->toArray();
                 $code = 200;
+                $redirect = "company-profile";
             } else {
                 $message = "Login gagal, password salah";
             }
@@ -132,7 +135,8 @@ class CompanyController extends Controller
         return response()->json([
             'status' => $status,
             'message' => $message,
-            'data' => $data
+            'data' => $data,
+            'redirect' => $redirect
         ], $code);
     }
 

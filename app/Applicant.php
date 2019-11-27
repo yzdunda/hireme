@@ -15,4 +15,20 @@ class Applicant extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function acceptApplicants()
+    {
+        $this->status = "ACCEPTED";
+        $this->save();
+
+        return $this->status;
+    }
+
+    public function rejectApplicants()
+    {
+        $this->status = "REJECTED";
+        $this->save();
+
+        return $this->status;
+    }
 }
